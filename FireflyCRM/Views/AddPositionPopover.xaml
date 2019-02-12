@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:FireflyCRM.Views"
+    x:Class="FireflyCRM.Views.AddPositionPopover">
+    
+    <ContentPage.Resources>
+        
+        <Style TargetType="Entry">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="Margin" Value="0,0,16,0"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        </Style>
+        
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="Picker">
+            <Setter Property="Margin" Value="0,0,16,0"/>
+        </Style>
+        
+    </ContentPage.Resources>
+    
+    <StackLayout 
+        Padding="16,8,0,0"
+        Spacing="8">
+        
+        <Grid>
+            <ImageButton 
+                Style="{StaticResource CloseButton}"
+                Margin="0,0,6,0"/>
+        </Grid>
+        
+        <!-- Name -->
+        <Entry Placeholder="Наименование"/>
+        <views:SeparatorView />
+        
+        <!-- Price -->
+        <Entry 
+            Placeholder="Цена"
+            Keyboard="Numeric"/>
+        <views:SeparatorView />
+        
+        <!-- Quantity -->
+        <Grid Margin="0,0,16,0">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label 
+                Grid.Column="0"
+                Text="Количество"/>
+            
+            <!-- TODO: Make stepper control -->
+            <Label 
+                Grid.Column="1"
+                Text="1" 
+                HorizontalOptions="End"/>
+            
+            <Stepper
+                Grid.Column="2"
+                HorizontalOptions="End"/>
+            
+        </Grid>
+        <views:SeparatorView />
+        
+        <!-- Payment method -->
+        <Picker />
+        <views:SeparatorView />
+        
+        <!-- Payment object -->
+        <Picker />
+        <views:SeparatorView />
+
+        <!-- VAT -->
+        <Picker />
+        <views:SeparatorView />
+        
+        <!-- Tax -->
+        <Picker />
+        
+        <Grid>
+            <Button 
+                Text="Добавить"
+                Margin="0,16,0,0"
+                Style="{StaticResource FireflyButton}"
+                HorizontalOptions="Center"
+                Padding="32,0,32,0"/>
+        </Grid>
+        
+    </StackLayout>
+    
+</ContentPage>

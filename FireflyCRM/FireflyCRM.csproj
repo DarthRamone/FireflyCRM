@@ -13,13 +13,8 @@
     <Compile Remove="AppShell.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\PaymentsPage.xaml.cs">
-      <DependentUpon>PaymentsPage.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Enums" />
+    <Folder Include="Pages" />
   </ItemGroup>
 
   <ItemGroup>

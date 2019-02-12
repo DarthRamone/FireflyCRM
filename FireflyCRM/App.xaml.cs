@@ -11,7 +11,7 @@ namespace FireflyCRM
         {
             InitializeComponent();
 
-            MainPage = new NewBillPage();
+            MainPage = new AddPositionPopover();
         }
 
         protected override void OnStart()

@@ -6,12 +6,15 @@
     
     <ScrollView Padding="8">
         
-        <StackLayout x:Name="_stackLayout" 
-                     Spacing="8">
+        <StackLayout 
+            x:Name="_stackLayout" 
+            Spacing="8">
         
             <Label Text="Описание заказа"/>
-            <Entry Placeholder="Описание" 
-                   Text="{Binding Description, Mode=OneWayToSource}"/>
+            
+            <Entry 
+                Placeholder="Описание" 
+                Text="{Binding Description, Mode=OneWayToSource}"/>
             
             <Label Text="Позиции"
                    TextColor="Black"
@@ -31,7 +34,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
 
             <Button Text="Добавить" 
                     HorizontalOptions="Center"
