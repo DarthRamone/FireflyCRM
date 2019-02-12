@@ -1,4 +1,4 @@
-﻿using FireflyCRM.Views;
+﻿using FireflyCRM.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

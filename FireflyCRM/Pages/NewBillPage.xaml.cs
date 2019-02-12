@@ -2,7 +2,7 @@ using System;
 using FireflyCRM.ViewModels;
 using Xamarin.Forms;
 
-namespace FireflyCRM.Views
+namespace FireflyCRM.Pages
 {
     public partial class NewBillPage
     {

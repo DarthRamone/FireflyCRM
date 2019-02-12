@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace FireflyCRM.Views
+namespace FireflyCRM.Pages
 {
     public partial class AddPositionPopover : ContentPage
     {

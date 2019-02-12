@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FireflyCRM.Views
+namespace FireflyCRM.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaymentsPage : ContentPage
