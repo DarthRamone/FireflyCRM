@@ -10,9 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.8055-pre1" />  
+    <Compile Remove="AppShell.xaml.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="Views\PaymentsPage.xaml.cs">
       <DependentUpon>PaymentsPage.xaml</DependentUpon>
@@ -25,5 +24,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModulBank.Net\ModulBank.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
   </ItemGroup>
 </Project>

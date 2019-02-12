@@ -131,14 +131,16 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.8055-pre1" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\FireflyCRM\FireflyCRM.csproj">
       <Project>{33D10385-D1E1-44B0-BDB3-3D7C81B7C338}</Project>
       <Name>FireflyCRM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.5.0.129452</Version>
+    </PackageReference>
   </ItemGroup>
 </Project>

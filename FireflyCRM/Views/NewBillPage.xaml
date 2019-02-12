@@ -4,7 +4,7 @@
              x:Class="FireflyCRM.Views.NewBillPage"
              Title="Ссылка на оплату">
     
-    <ScrollView Padding="8,8,8,8">
+    <ScrollView Padding="8">
         
         <StackLayout x:Name="_stackLayout" 
                      Spacing="8">

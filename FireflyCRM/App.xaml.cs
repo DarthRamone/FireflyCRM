@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using FireflyCRM.Views;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -10,7 +11,7 @@ namespace FireflyCRM
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NewBillPage();
         }
 
         protected override void OnStart()
