@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="FireflyCRM.Views.PaymentsPage">
+   
+    <ListView ItemsSource="{Binding PaymentLinks}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" 
+                                 Spacing="3">
+                        <Label Text="{Binding Id}"/>
+                        <Label Text="{Binding Amount}"/>
+                        <Label Text="{Binding Description}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>
