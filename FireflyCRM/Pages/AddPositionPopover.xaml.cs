@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
-
-namespace FireflyCRM.Pages
+﻿namespace FireflyCRM.Pages
 {
-    public partial class AddPositionPopover : ContentPage
+    public partial class AddPositionPopover
     {
         public AddPositionPopover()
         {

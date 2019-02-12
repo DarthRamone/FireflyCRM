@@ -1,17 +1,13 @@
-﻿using FireflyCRM.ViewModels;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms.Xaml;
 
 namespace FireflyCRM.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PaymentsPage : ContentPage
+    public partial class PaymentsPage
     {
         public PaymentsPage()
         {
             InitializeComponent();
-
-            BindingContext = new PaymentLinksPageViewModel();
         }
     }
 }

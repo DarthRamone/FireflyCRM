@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="FireflyCRM.Pages.PaymentsPage">
+<pages:BasePage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="FireflyCRM.Pages.PaymentsPage"
+    xmlns:views="clr-namespace:FireflyCRM.Views"
+    xmlns:pages="clr-namespace:FireflyCRM.Pages"
+    xmlns:viewModels="clr-namespace:FireflyCRM.ViewModels"
+    x:TypeArguments="viewModels:PaymentLinksPageViewModel">
    
     <ListView ItemsSource="{Binding PaymentLinks}">
         <ListView.ItemTemplate>
@@ -18,4 +23,4 @@
         </ListView.ItemTemplate>
     </ListView>
     
-</ContentPage>
+</pages:BasePage>
