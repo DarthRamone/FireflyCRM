@@ -4,18 +4,11 @@ namespace FireflyCRM.ViewModels
 {
     public class ReceiptItemViewModel : BaseViewModel
     {           
-        private string _description;
-        public string Description
-        {
-            get => _description;
-            set => SetProperty(ref _description, value);
-        }
-        
         private string _name;
         public string Name
         {
-            get => _description;
-            set => SetProperty(ref _description, value);
+            get => _name;
+            set => SetProperty(ref _name, value);
         }
         
         private double _price;
@@ -62,7 +55,6 @@ namespace FireflyCRM.ViewModels
 
         public ReceiptItemViewModel(ReceiptItem receiptItem)
         {
-            Description = receiptItem.Description;
             Name = receiptItem.Name;
             Price = receiptItem.Price;
             Quantity = receiptItem.Quantity;

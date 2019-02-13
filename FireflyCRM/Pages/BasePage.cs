@@ -10,6 +10,7 @@ namespace FireflyCRM.Pages
     protected void InitializeViewModel()
     {
       ViewModel = new T();
+      ViewModel.Navigation = Navigation;
       BindingContext = ViewModel;
     }
 

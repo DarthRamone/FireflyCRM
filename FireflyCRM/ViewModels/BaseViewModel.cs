@@ -5,7 +5,9 @@ using Xamarin.Forms;
 namespace FireflyCRM.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
-    {   
+    {
+        public INavigation Navigation { get; set; }
+        
         string title = string.Empty;
         public string Title
         {

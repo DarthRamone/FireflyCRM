@@ -1,17 +1,17 @@
 ﻿using System;
+using FireflyCRM.ViewModels;
 
 namespace FireflyCRM.Pages
 {
     public partial class AddReceiptItemPopover
-    {
+    {   
         public AddReceiptItemPopover()
         {
             InitializeComponent();
-        }
-        
-        private void CloseButtonHandler(object sender, EventArgs e)
-        {
-            Navigation.PopModalAsync();
+            InitializeViewModel();
+            
+            //TODO: Temporary
+            ViewModel.ReceiptItemViewModel = new ReceiptItemViewModel();
         }
     }
 }

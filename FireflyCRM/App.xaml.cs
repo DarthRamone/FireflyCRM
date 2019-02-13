@@ -12,6 +12,7 @@ namespace FireflyCRM
             InitializeComponent();
 
             var navigationPage = new NavigationPage(new NewBillPage());
+            
             MainPage = navigationPage;
         }
 

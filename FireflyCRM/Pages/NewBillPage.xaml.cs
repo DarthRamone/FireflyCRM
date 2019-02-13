@@ -7,11 +7,12 @@ namespace FireflyCRM.Pages
         public NewBillPage()
         {
             InitializeComponent();
+            InitializeViewModel();
         }
 
         private void AddReceiptButtonClickedHandler(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new AddReceiptItemPopover());
+            
         }
     }
 }

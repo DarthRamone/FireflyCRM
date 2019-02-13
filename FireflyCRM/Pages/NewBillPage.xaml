@@ -28,7 +28,7 @@
             <Button 
                 Text="Добавить" 
                 HorizontalOptions="Center"
-                Clicked="AddReceiptButtonClickedHandler"/>
+                Command="{Binding AddReceiptItemCommand}"/>
              
         </StackLayout>
         
