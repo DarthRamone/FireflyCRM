@@ -47,7 +47,7 @@ namespace FireflyCRM.ViewModels
         
         public NewBillPageViewModel()
         {
-            ReceiptItems = new ObservableCollection<ReceiptItemViewModel> {new ReceiptItemViewModel()};
+            ReceiptItems = new ObservableCollection<ReceiptItemViewModel>();
             ListViewHeight = 80;
             
             AddReceiptItemCommand = new Command(AddReceiptItemCommandHandler);
@@ -56,7 +56,7 @@ namespace FireflyCRM.ViewModels
         private void AddReceiptItemCommandHandler()
         {
             //TODO: Pass new item
-            Navigation.PushModalAsync(new AddReceiptItemPopover());
+            Navigation.PushModalAsync(new AddReceiptItemPopover(ReceiptItems));
         }
     }
 }

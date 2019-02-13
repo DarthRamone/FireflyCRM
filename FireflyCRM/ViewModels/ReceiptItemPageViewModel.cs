@@ -1,11 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using ModulBank.Models;
+using Xamarin.Forms;
 
 namespace FireflyCRM.ViewModels
 {
   public class ReceiptItemPageViewModel : BasePopoverViewModel
   {
+    public ReceiptItemViewModel ReceiptItemViewModel { get; set; }
+    
+    public IList<ReceiptItemViewModel> ReceiptItemsCollection { get; set; }
+    
     //TODO: Refactoring: figure out how to refactor w/o dictionaries 
     private readonly Dictionary<string, PaymentMethod> _paymentMethodsMap = new Dictionary<string, PaymentMethod>
     {
@@ -33,8 +39,6 @@ namespace FireflyCRM.ViewModels
     {
       {"УСН Доход", TaxSystem.USN_INCOME},
     };
-    
-    public ReceiptItemViewModel ReceiptItemViewModel { get; set; }
 
     
     #region payment methods
@@ -132,12 +136,22 @@ namespace FireflyCRM.ViewModels
 
     #endregion
 
+    public ICommand DoneCommand { get; }
+    
     public ReceiptItemPageViewModel()
     {
       PaymentMethods = _paymentMethodsMap.Keys.ToList();
       PaymentObjects = _paymentObjectsMap.Keys.ToList();
       Vats = _vatMap.Keys.ToList();
       Taxes = _taxMap.Keys.ToList();
+      
+      DoneCommand = new Command(DoneCommandHandler);
+    }
+
+    private void DoneCommandHandler()
+    {
+      ReceiptItemsCollection?.Add(ReceiptItemViewModel);
+      Navigation.PopModalAsync();
     }
   }
 }

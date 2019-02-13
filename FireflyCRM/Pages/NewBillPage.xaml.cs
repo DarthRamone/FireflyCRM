@@ -1,5 +1,3 @@
-using System;
-
 namespace FireflyCRM.Pages
 {
     public partial class NewBillPage
@@ -8,11 +6,6 @@ namespace FireflyCRM.Pages
         {
             InitializeComponent();
             InitializeViewModel();
-        }
-
-        private void AddReceiptButtonClickedHandler(object sender, EventArgs e)
-        {
-            
         }
     }
 }

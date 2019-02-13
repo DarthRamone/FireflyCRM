@@ -29,7 +29,9 @@
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="CornerRadius" Value="8"></Setter>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Padding" Value="32,0,32,0"/>
+                <Setter Property="HeightRequest" Value="44"/>
             </Style>
             
             <Style TargetType="Button" x:Key="CancelButton">

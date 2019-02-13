@@ -1,37 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pages="clr-namespace:FireflyCRM.Pages"
-             xmlns:viewModels="clr-namespace:FireflyCRM.ViewModels"
-             x:Class="FireflyCRM.Pages.NewBillPage"
-             x:TypeArguments="viewModels:NewBillPageViewModel"
-             Title="Ссылка на оплату">
+<pages:BasePage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:FireflyCRM.Pages"
+    xmlns:viewModels="clr-namespace:FireflyCRM.ViewModels"
+    x:Class="FireflyCRM.Pages.NewBillPage"
+    x:TypeArguments="viewModels:NewBillPageViewModel"
+    Title="Ссылка на оплату">
     
-    <ScrollView Padding="8">
+        <Grid>
         
-        <StackLayout Spacing="8">
-        
-            <Label Text="Описание заказа"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
             
             <Entry 
+                Grid.Row="0"
                 Placeholder="Описание" 
-                Text="{Binding Description, Mode=OneWayToSource}"/>
+                Text="{Binding Description}"
+                HeightRequest="60"/>
             
             <Label 
+                Grid.Row="1"
                 Text="Позиции"
                 TextColor="Black"
                 HorizontalTextAlignment="Center"
                 HorizontalOptions="Center"
                 FontSize="Large"
                 Margin="0,8,0,0"/>
+            
+            <ListView 
+                Grid.Row="2"
+                ItemsSource="{Binding ReceiptItems}"
+                SelectionMode="None"
+                SeparatorColor="{StaticResource FireflyPrimaryColor}">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+                <ListView.Footer>
+                    <BoxView/>
+                </ListView.Footer>
+                
+            </ListView>
 
             <Button 
+                Grid.Row="3"
+                Style="{StaticResource FireflyButton}"
+                Margin="0,0,0, 32"
                 Text="Добавить" 
                 HorizontalOptions="Center"
                 Command="{Binding AddReceiptItemCommand}"/>
              
-        </StackLayout>
-        
-    </ScrollView>
+        </Grid>
     
 </pages:BasePage>
