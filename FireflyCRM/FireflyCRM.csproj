@@ -11,6 +11,9 @@
 
   <ItemGroup>
     <Compile Remove="AppShell.xaml.cs" />
+    <Compile Update="Pages\AddPositionPopover.xaml.cs">
+      <DependentUpon>AddReceiptItemPopover.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enums" />

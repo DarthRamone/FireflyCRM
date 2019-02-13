@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using FireflyCRM.Pages;
 using ModulBank.Models;
 using Xamarin.Forms;
 
@@ -46,14 +47,7 @@ namespace FireflyCRM.ViewModels
         public NewBillPageViewModel()
         {
             ReceiptItems = new ObservableCollection<ReceiptItemViewModel> {new ReceiptItemViewModel()};
-            AddNewReceiptItemCommand = new Command(AddNewReceiptItem);
             ListViewHeight = 80;
-        }
-
-        private void AddNewReceiptItem()
-        {
-            ReceiptItems.Add(new ReceiptItemViewModel());
-            ListViewHeight = ReceiptItems.Count * 80;
         }
     }
 }

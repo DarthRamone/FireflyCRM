@@ -1,10 +1,17 @@
-﻿namespace FireflyCRM.Pages
+﻿using System;
+
+namespace FireflyCRM.Pages
 {
-    public partial class AddPositionPopover
+    public partial class AddReceiptItemPopover
     {
-        public AddPositionPopover()
+        public AddReceiptItemPopover()
         {
             InitializeComponent();
+        }
+        
+        private void CloseButtonHandler(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }

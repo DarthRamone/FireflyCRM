@@ -1,3 +1,5 @@
+using System;
+
 namespace FireflyCRM.Pages
 {
     public partial class NewBillPage
@@ -5,6 +7,11 @@ namespace FireflyCRM.Pages
         public NewBillPage()
         {
             InitializeComponent();
+        }
+
+        private void AddReceiptButtonClickedHandler(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new AddReceiptItemPopover());
         }
     }
 }

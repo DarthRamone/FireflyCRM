@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:FireflyCRM.Views"
              xmlns:pages="clr-namespace:FireflyCRM.Pages"
              xmlns:viewModels="clr-namespace:FireflyCRM.ViewModels"
              x:Class="FireflyCRM.Pages.NewBillPage"
@@ -10,9 +9,7 @@
     
     <ScrollView Padding="8">
         
-        <StackLayout 
-            x:Name="_stackLayout" 
-            Spacing="8">
+        <StackLayout Spacing="8">
         
             <Label Text="Описание заказа"/>
             
@@ -20,31 +17,19 @@
                 Placeholder="Описание" 
                 Text="{Binding Description, Mode=OneWayToSource}"/>
             
-            <Label Text="Позиции"
-                   TextColor="Black"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="Center"
-                   FontSize="Large"
-                   Margin="0,8,0,0"/>
-            
-            <ListView ItemsSource="{Binding ReceiptItems}"
-                      HasUnevenRows="True"
-                      BackgroundColor="Khaki"
-                      VerticalOptions="Start"
-                      HeightRequest="{Binding ListViewHeight}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="Test" TextColor="Black" Height="80"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Label 
+                Text="Позиции"
+                TextColor="Black"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                FontSize="Large"
+                Margin="0,8,0,0"/>
 
-            <Button Text="Добавить" 
-                    HorizontalOptions="Center"
-                    Command="{Binding AddNewReceiptItemCommand}"/>
-            
-            
-            
+            <Button 
+                Text="Добавить" 
+                HorizontalOptions="Center"
+                Clicked="AddReceiptButtonClickedHandler"/>
+             
         </StackLayout>
         
     </ScrollView>

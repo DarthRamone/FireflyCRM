@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace FireflyCRM.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
-    {
+    {   
         string title = string.Empty;
         public string Title
         {
