@@ -81,17 +81,22 @@
         <!-- Payment object -->
         <Picker
             Title="Предмет расчёта"
-            ItemsSource="{Binding PaymentObjects}"/>
+            ItemsSource="{Binding PaymentObjects}"
+            SelectedItem="{Binding SelectedPaymentObject}"/>
         <views:SeparatorView />
 
         <!-- VAT -->
         <Picker 
-            Title="НДС"/>
+            Title="НДС"
+            ItemsSource="{Binding Vats}"
+            SelectedItem="{Binding SelectedVat}"/>
         <views:SeparatorView />
         
         <!-- Tax -->
         <Picker 
-            Title="Система налогообложения"/>
+            Title="Система налогообложения"
+            ItemsSource="{Binding Taxes}"
+            SelectedItem="{Binding SelectedTax}"/>
         
         <Grid>
             

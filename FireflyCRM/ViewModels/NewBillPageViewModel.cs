@@ -55,6 +55,7 @@ namespace FireflyCRM.ViewModels
 
         private void AddReceiptItemCommandHandler()
         {
+            //TODO: Pass new item
             Navigation.PushModalAsync(new AddReceiptItemPopover());
         }
     }
