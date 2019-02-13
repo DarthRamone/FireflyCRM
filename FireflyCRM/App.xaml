@@ -34,6 +34,14 @@
                 <Setter Property="HeightRequest" Value="44"/>
             </Style>
             
+            <Style TargetType="Button" x:Key="TextButton">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="{StaticResource FireflySecondaryColor}"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="HeightRequest" Value="44"/>
+            </Style>
+            
             <Style TargetType="Button" x:Key="CancelButton">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
                 <Setter Property="TextColor" Value="{StaticResource TextColor}"/>

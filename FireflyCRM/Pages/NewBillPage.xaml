@@ -17,23 +17,42 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
             <Entry 
                 Grid.Row="0"
+                Grid.ColumnSpan="2"
                 Placeholder="Описание" 
                 Text="{Binding Description}"
                 HeightRequest="60"/>
             
             <Label 
                 Grid.Row="1"
+                Grid.Column="0"
                 Text="Позиции"
                 TextColor="Black"
                 HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"
+                HorizontalOptions="Start"
                 FontSize="Large"
-                Margin="0,8,0,0"/>
+                Margin="16,8,0,0"/>
+            
+            <Button 
+                Grid.Row="1"
+                Grid.Column="1"
+                Style="{StaticResource TextButton}"
+                Text="+"
+                HorizontalOptions="End"
+                Margin="0,0,16,0"
+                VerticalOptions="Center"
+                Command="{Binding AddReceiptItemCommand}"/>
             
             <ListView 
                 Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 ItemsSource="{Binding ReceiptItems}"
                 SelectionMode="None"
                 SeparatorColor="{StaticResource FireflyPrimaryColor}">
@@ -50,13 +69,25 @@
                 
             </ListView>
 
+            <Label
+                Grid.Column="0"
+                Grid.Row="3"
+                HorizontalOptions="Start"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center"
+                Margin="16,0,0,16"
+                Text="Итого: 5000р"
+                FontSize="Large"/>
+            
             <Button 
+                Grid.Column="1"
                 Grid.Row="3"
                 Style="{StaticResource FireflyButton}"
-                Margin="0,0,0, 32"
-                Text="Добавить" 
-                HorizontalOptions="Center"
-                Command="{Binding AddReceiptItemCommand}"/>
+                Margin="0,0,16,16"
+                Text="Создать" 
+                HorizontalOptions="End"
+                VerticalOptions="Center"/>
              
         </Grid>
     
