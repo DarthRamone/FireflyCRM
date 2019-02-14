@@ -1,4 +1,8 @@
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Windows.Input;
+using FireflyCRM.Pages;
 using ModulBank.Models;
 using Xamarin.Forms;
 
@@ -33,8 +37,6 @@ namespace FireflyCRM.ViewModels
             get => _receiptItems;
             set => SetProperty(ref _receiptItems, value);
         }
-        
-        public Command AddNewReceiptItemCommand { get; }
 
         private double _listViewHeight;
         public double ListViewHeight
@@ -43,17 +45,31 @@ namespace FireflyCRM.ViewModels
             set => SetProperty(ref _listViewHeight, value);
         }
         
+        public ICommand AddReceiptItemCommand { get; }
+        
         public NewBillPageViewModel()
         {
-            ReceiptItems = new ObservableCollection<ReceiptItemViewModel> {new ReceiptItemViewModel()};
-            AddNewReceiptItemCommand = new Command(AddNewReceiptItem);
+            ReceiptItems = new ObservableCollection<ReceiptItemViewModel>();
             ListViewHeight = 80;
+            
+            AddReceiptItemCommand = new Command(AddReceiptItemCommandHandler);
         }
 
-        private void AddNewReceiptItem()
+        private void AddReceiptItemCommandHandler()
         {
-            ReceiptItems.Add(new ReceiptItemViewModel());
-            ListViewHeight = ReceiptItems.Count * 80;
+            //TODO: Pass new item
+            Navigation.PushModalAsync(new AddReceiptItemPopover(ReceiptItems));
+        }
+
+        public override void OnAppearing()
+        {
+            base.OnAppearing();
+            ReceiptItems.CollectionChanged += ReceiptItemsCollectionChangedHanlder;
+        }
+
+        private void ReceiptItemsCollectionChangedHanlder(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            Amount = ReceiptItems.Sum(receiptItem => receiptItem.Price);
         }
     }
 }

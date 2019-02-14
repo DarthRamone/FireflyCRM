@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:BasePopover 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:FireflyCRM.Views"
+    xmlns:pages="clr-namespace:FireflyCRM.Pages"
+    xmlns:viewModels="clr-namespace:FireflyCRM.ViewModels"
+    x:TypeArguments="viewModels:ReceiptItemPageViewModel"
+    x:Class="FireflyCRM.Pages.AddReceiptItemPopover">
+    
+    <ContentPage.Resources>
+        
+        <Style TargetType="Entry">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="Margin" Value="0,0,16,0"/>
+            <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        </Style>
+        
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="Picker">
+            <Setter Property="Margin" Value="0,0,16,0"/>
+        </Style>
+        
+    </ContentPage.Resources>
+    
+    <StackLayout 
+        Padding="16,32,0,0"
+        Spacing="8">
+        
+        <!-- Name -->
+        <Entry 
+            Placeholder="Наименование"
+            Text="{Binding ReceiptItemViewModel.Name}"/>
+        <views:SeparatorView />
+        
+        <!-- Price -->
+        <Entry 
+            Placeholder="Цена"
+            Keyboard="Numeric"
+            Text="{Binding ReceiptItemViewModel.Price}"/>
+        <views:SeparatorView />
+        
+        <!-- Quantity -->
+        <Grid Margin="0,0,16,0">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label 
+                Grid.Column="0"
+                Text="Количество"/>
+            
+            <!-- TODO: Make stepper control -->
+            <Label 
+                Grid.Column="1"
+                Text="1" 
+                HorizontalOptions="End"/>
+            
+            <Stepper
+                Grid.Column="2"
+                HorizontalOptions="End"
+                Value="{Binding Quantity}"/>
+            
+        </Grid>
+        <views:SeparatorView />
+        
+        <!-- Payment method -->
+        <Picker 
+            Title="Тип оплаты"
+            ItemsSource="{Binding PaymentMethods}"
+            SelectedItem="{Binding SelectedPaymentMethod}"/>
+        <views:SeparatorView />
+        
+        <!-- Payment object -->
+        <Picker
+            Title="Предмет расчёта"
+            ItemsSource="{Binding PaymentObjects}"
+            SelectedItem="{Binding SelectedPaymentObject}"/>
+        <views:SeparatorView />
+
+        <!-- VAT -->
+        <Picker 
+            Title="НДС"
+            ItemsSource="{Binding Vats}"
+            SelectedItem="{Binding SelectedVat}"/>
+        <views:SeparatorView />
+        
+        <!-- Tax -->
+        <Picker 
+            Title="Система налогообложения"
+            ItemsSource="{Binding Taxes}"
+            SelectedItem="{Binding SelectedTax}"/>
+        
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Button 
+                Grid.Row="0"
+                Text="Добавить"
+                Margin="0,16,0,0"
+                Style="{StaticResource FireflyButton}"
+                HorizontalOptions="Center"
+                Command="{Binding DoneCommand}"/>
+            
+            <Button 
+                Grid.Row="1"
+                Text="Отмена"
+                Style="{StaticResource CancelButton}"
+                HorizontalOptions="Center"
+                Padding="32,0,32,0"
+                Command="{Binding DismissCommand}"/>
+            
+        </Grid>
+        
+    </StackLayout>
+    
+</pages:BasePopover>

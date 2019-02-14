@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace FireflyCRM.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        bool isBusy = false;
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
-        }
-
+        public INavigation Navigation { get; set; }
+        
         string title = string.Empty;
         public string Title
         {
@@ -21,29 +15,50 @@ namespace FireflyCRM.ViewModels
             set { SetProperty(ref title, value); }
         }
 
-        protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName]string propertyName = "",
-            Action onChanged = null)
+        private bool _isBusy;
+        public bool IsBusy
         {
-            if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            get => _isBusy;
+            set => SetValue(ref _isBusy, value);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        public bool IsModified { get; private set; }
+        
+        protected BaseViewModel ()
+        {
+        }
+
+        protected void SetValue<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (SetProperty(ref storage, value, propertyName))
+                IsModified = true;
+        }
+
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (Equals(storage, value))
                 return false;
 
-            backingStore = value;
-            onChanged?.Invoke();
+            storage = value;
             OnPropertyChanged(propertyName);
             return true;
         }
 
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            var changed = PropertyChanged;
-            if (changed == null)
-                return;
-
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var handler = PropertyChanged;
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
+        
+        
+        public virtual void OnAppearing()
+        {
+        }
+
+        public virtual void OnDisappearing()
+        {
+        }
     }
 }

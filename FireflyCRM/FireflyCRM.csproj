@@ -11,13 +11,10 @@
 
   <ItemGroup>
     <Compile Remove="AppShell.xaml.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Views\PaymentsPage.xaml.cs">
-      <DependentUpon>PaymentsPage.xaml</DependentUpon>
+    <Compile Update="Pages\AddReceiptItemPopover.xaml.cs">
+      <DependentUpon>AddReceiptItemPopover.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Enums" />
   </ItemGroup>
