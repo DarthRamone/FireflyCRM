@@ -26,6 +26,14 @@ namespace FireflyCRM.ViewModels
             set => SetProperty(ref _description, value);
         }
         
+        
+        private string _email;
+        public string Email
+        {
+            get => _email;
+            set => SetProperty(ref _email, value);
+        }
+        
         private double _amount;
         public double Amount
         {
@@ -93,7 +101,7 @@ namespace FireflyCRM.ViewModels
                 Testing = true, //TODO: testing
                 Description = Description,
                 Timestamp = DateTime.UtcNow,
-                ReceiptContact = "darthramone@icloud.com",
+                ReceiptContact = Email,
                 ReceiptItems = ReceiptItems.Select(receiptItem => receiptItem.BuildReceiptItem()).ToList()
             };
         }
