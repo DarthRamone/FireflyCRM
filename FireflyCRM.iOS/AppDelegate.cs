@@ -1,4 +1,7 @@
 ﻿using Foundation;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using UIKit;
 
 namespace FireflyCRM.iOS
@@ -20,6 +23,8 @@ namespace FireflyCRM.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            AppCenter.Start("01cfe109-afbd-45ae-85a3-a90ae2a5a03e", typeof(Analytics), typeof(Crashes));
 
             return base.FinishedLaunching(app, options);
         }

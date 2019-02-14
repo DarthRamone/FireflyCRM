@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace FireflyCRM.Droid
 {
@@ -13,6 +16,9 @@ namespace FireflyCRM.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            AppCenter.Start("01cfe109-afbd-45ae-85a3-a90ae2a5a03e", typeof(Analytics), typeof(Crashes));
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
