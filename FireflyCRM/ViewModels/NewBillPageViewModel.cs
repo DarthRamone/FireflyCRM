@@ -34,6 +34,13 @@ namespace FireflyCRM.ViewModels
             set => SetProperty(ref _email, value);
         }
         
+        private bool _isTesting = true;
+        public bool IsTesting
+        {
+            get => _isTesting;
+            set => SetProperty(ref _isTesting, value);
+        }
+        
         private double _amount;
         public double Amount
         {
@@ -75,7 +82,7 @@ namespace FireflyCRM.ViewModels
         private void CreateBillCommandHandler()
         {
             //TODO: Validate fields
-            Navigation.PushModalAsync(new BillCreationPopover(BuildPayload()));
+            Navigation.PushModalAsync(new BillCreationPopover(BuildPayload(), IsTesting));
         }
 
         public override void OnAppearing()
@@ -98,7 +105,7 @@ namespace FireflyCRM.ViewModels
             {
                 Merchant = merchantId,
                 Amount = Amount,
-                Testing = true, //TODO: testing
+                Testing = IsTesting,
                 Description = Description,
                 Timestamp = DateTime.UtcNow,
                 ReceiptContact = Email,

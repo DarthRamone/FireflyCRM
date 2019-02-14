@@ -7,10 +7,10 @@ using Newtonsoft.Json;
 namespace FireflyCRM.Services.KeystoreProvider
 {
   public class KeystoreProvider : IKeystoreProvider
-  {
-    private const string PATH = "/Users/darthramone/Projects/FireflyCRM/FireflyCRM/Resources/keys.json"; 
-    
+  { 
     public string SecretKey { get; }
+    
+    public string TestSecretKey { get; }
     
     public string MerchantId { get; }
 
@@ -31,11 +31,8 @@ namespace FireflyCRM.Services.KeystoreProvider
 
         MerchantId = keys.MerchantId;
         
-        #if DEBUG
-        SecretKey = keys.TestSecretKey;
-        #else
         SecretKey = keys.SecretKey;
-        #endif
+        TestSecretKey = keys.TestSecretKey;
       }
     }
 

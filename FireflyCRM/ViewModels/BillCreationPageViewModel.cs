@@ -10,6 +10,8 @@ namespace FireflyCRM.ViewModels
 {
   public class BillCreationPageViewModel : BasePopoverViewModel
   {
+    public bool IsTesting = true;
+    
     public BillPayload BillPayload;
     
     private string _url;
@@ -37,7 +39,7 @@ namespace FireflyCRM.ViewModels
     {
       base.OnAppearing();
       var keystore = new KeystoreProvider();
-      var modulBankClient = new ModulBankClient(keystore.SecretKey);
+      var modulBankClient = new ModulBankClient(IsTesting ? keystore.TestSecretKey : keystore.SecretKey);
       
       try
       {
