@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FireflyCRM.App">
+<Application 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:converters="clr-namespace:FireflyCRM.Converters"
+    x:Class="FireflyCRM.App">
+    
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
+
+            <converters:CurrencyConverter x:Key="CurrencyConverter"/>
             
             <Color x:Key="FireflyPrimaryColor">#910428</Color>
             <Color x:Key="FireflySecondaryColor">#ff0248</Color>
