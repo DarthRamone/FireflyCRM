@@ -10,6 +10,7 @@
             <!--Global Styles-->
 
             <converters:CurrencyConverter x:Key="CurrencyConverter"/>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
             
             <Color x:Key="FireflyPrimaryColor">#910428</Color>
             <Color x:Key="FireflySecondaryColor">#ff0248</Color>

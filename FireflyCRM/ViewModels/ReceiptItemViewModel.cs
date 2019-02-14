@@ -18,7 +18,7 @@ namespace FireflyCRM.ViewModels
             set => SetProperty(ref _price, value);
         }
         
-        private int _quantity;
+        private int _quantity = 1;
         public int Quantity
         {
             get => _quantity;
@@ -66,6 +66,20 @@ namespace FireflyCRM.ViewModels
 
         public ReceiptItemViewModel()
         {
+        }
+
+        public ReceiptItem BuildReceiptItem()
+        {
+            return new ReceiptItem
+            {
+                Name = Name,
+                Price = Price,
+                Quantity = Quantity,
+                Sno = Sno,
+                PaymentObject = PaymentObject,
+                PaymentMethod = PaymentMethod,
+                Vat = Vat
+            };
         }
     }
 }

@@ -90,7 +90,8 @@
                 Margin="0,0,16,16"
                 Text="Создать" 
                 HorizontalOptions="End"
-                VerticalOptions="Center"/>
+                VerticalOptions="Center"
+                Command="{Binding CreateBillCommand}"/>
              
         </Grid>
     

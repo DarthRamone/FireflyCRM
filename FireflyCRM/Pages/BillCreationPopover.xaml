@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:BasePopover 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:views="clr-namespace:FireflyCRM.Views"
+    xmlns:pages="clr-namespace:FireflyCRM.Pages"
+    xmlns:viewModels="clr-namespace:FireflyCRM.ViewModels"
+    x:TypeArguments="viewModels:BillCreationPageViewModel"
+    x:Class="FireflyCRM.Pages.BillCreationPopover">
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <ActivityIndicator 
+            Grid.RowSpan="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource FireflyPrimaryColor}"
+            IsRunning="True"/>
+        
+        <Label 
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="End"
+            FontSize="Small"
+            Text="{Binding Url}"/>
+        
+        <StackLayout 
+            Grid.Row="1"
+            Margin="0,16,0,16">
+            
+            <Button 
+                Style="{StaticResource FireflyButton}"
+                HorizontalOptions="Center"
+                Text="Скопировать"
+                Command="{Binding CopyUrlCommand}"
+                IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"/>
+            
+            <Button 
+                Style="{StaticResource CancelButton}"
+                HorizontalOptions="Center"
+                Text="Отмена"
+                Command="{Binding DismissCommand}"
+                IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"/>
+            
+        </StackLayout>
+        
+        
+    </Grid>
+    
+</pages:BasePopover>
