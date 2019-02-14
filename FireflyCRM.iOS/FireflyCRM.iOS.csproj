@@ -124,4 +124,8 @@
   <ItemGroup>
     <Folder Include="Assets.xcassets\close_icon.imageset\" />
   </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
 </Project>
