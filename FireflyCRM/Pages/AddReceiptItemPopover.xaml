@@ -41,7 +41,7 @@
         <Entry 
             Placeholder="Цена"
             Keyboard="Numeric"
-            Text="{Binding Price}"/>
+            Text="{Binding ReceiptItemViewModel.Price}"/>
         <views:SeparatorView />
         
         <!-- Quantity -->

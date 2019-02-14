@@ -16,7 +16,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Converters" />
     <Folder Include="Enums" />
   </ItemGroup>
 
