@@ -32,13 +32,13 @@
         Spacing="8">
         
         <!-- Name -->
-        <Entry 
+        <views:FireflyEntry 
             Placeholder="Наименование"
             Text="{Binding ReceiptItemViewModel.Name}"/>
         <views:SeparatorView />
         
         <!-- Price -->
-        <Entry 
+        <views:FireflyEntry 
             Placeholder="Цена"
             Keyboard="Numeric"
             Text="{Binding ReceiptItemViewModel.Price}"/>
@@ -72,28 +72,28 @@
         <views:SeparatorView />
         
         <!-- Payment method -->
-        <Picker 
+        <views:FireflyPicker 
             Title="Тип оплаты"
             ItemsSource="{Binding PaymentMethods}"
             SelectedItem="{Binding SelectedPaymentMethod}"/>
         <views:SeparatorView />
         
         <!-- Payment object -->
-        <Picker
+        <views:FireflyPicker 
             Title="Предмет расчёта"
             ItemsSource="{Binding PaymentObjects}"
             SelectedItem="{Binding SelectedPaymentObject}"/>
         <views:SeparatorView />
 
         <!-- VAT -->
-        <Picker 
+        <views:FireflyPicker  
             Title="НДС"
             ItemsSource="{Binding Vats}"
             SelectedItem="{Binding SelectedVat}"/>
         <views:SeparatorView />
         
         <!-- Tax -->
-        <Picker 
+        <views:FireflyPicker  
             Title="Система налогообложения"
             ItemsSource="{Binding Taxes}"
             SelectedItem="{Binding SelectedTax}"/>

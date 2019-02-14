@@ -9,7 +9,7 @@
     x:TypeArguments="viewModels:NewBillPageViewModel"
     Title="Ссылка на оплату">
     
-        <Grid>
+        <Grid Padding="16">
         
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -25,14 +25,14 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             
-            <Entry 
+            <views:FireflyEntry
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
                 Placeholder="Описание" 
                 Text="{Binding Description}"
                 HeightRequest="60"/>
             
-            <Entry 
+            <views:FireflyEntry 
                 Grid.Row="1"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
@@ -45,7 +45,7 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Text="Тестовая ссылка"
-                Margin="16,8,0,8"
+                Margin="0,8,0,8"
                 VerticalTextAlignment="Center"/>
             
             <Switch 
@@ -54,7 +54,6 @@
                 HorizontalOptions="End"
                 VerticalOptions="Center"
                 OnColor="{StaticResource FireflyPrimaryColor}"
-                Margin="0,0,16,0"
                 IsToggled="{Binding IsTesting}"/>
             
             <Label 
@@ -65,7 +64,7 @@
                 HorizontalTextAlignment="Center"
                 HorizontalOptions="Start"
                 FontSize="Large"
-                Margin="16,8,0,0"/>
+                Margin="0,8,0,0"/>
             
             <Button 
                 Grid.Row="3"
@@ -73,7 +72,6 @@
                 Style="{StaticResource TextButton}"
                 Text="+"
                 HorizontalOptions="End"
-                Margin="0,0,16,0"
                 VerticalOptions="Center"
                 Command="{Binding AddReceiptItemCommand}"/>
             
@@ -106,7 +104,6 @@
                 FontAttributes="Bold"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center"
-                Margin="16,0,0,16"
                 Text="{Binding Amount, Converter={StaticResource CurrencyConverter}}"
                 FontSize="Large"/>
             
@@ -114,7 +111,6 @@
                 Grid.Column="1"
                 Grid.Row="5"
                 Style="{StaticResource FireflyButton}"
-                Margin="0,0,16,16"
                 Text="Создать" 
                 HorizontalOptions="End"
                 VerticalOptions="Center"
