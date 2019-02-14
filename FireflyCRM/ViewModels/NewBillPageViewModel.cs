@@ -1,4 +1,6 @@
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Windows.Input;
 using FireflyCRM.Pages;
 using ModulBank.Models;
@@ -57,6 +59,17 @@ namespace FireflyCRM.ViewModels
         {
             //TODO: Pass new item
             Navigation.PushModalAsync(new AddReceiptItemPopover(ReceiptItems));
+        }
+
+        public override void OnAppearing()
+        {
+            base.OnAppearing();
+            ReceiptItems.CollectionChanged += ReceiptItemsCollectionChangedHanlder;
+        }
+
+        private void ReceiptItemsCollectionChangedHanlder(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            Amount = ReceiptItems.Sum(receiptItem => receiptItem.Price);
         }
     }
 }

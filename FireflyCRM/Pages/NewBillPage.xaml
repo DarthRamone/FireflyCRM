@@ -80,7 +80,7 @@
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center"
                 Margin="16,0,0,16"
-                Text="Итого: 5000р"
+                Text="{Binding Amount, Converter={StaticResource CurrencyConverter}}"
                 FontSize="Large"/>
             
             <Button 
