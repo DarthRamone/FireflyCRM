@@ -26,4 +26,10 @@
     <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
     <PackageReference Include="Xamarin.Plugins.Clipboard" Version="2.2.1" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\keys.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\keys.json" />
+  </ItemGroup>
 </Project>

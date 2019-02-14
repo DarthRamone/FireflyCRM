@@ -1,4 +1,7 @@
+using System;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Newtonsoft.Json;
 
 namespace FireflyCRM.Services.KeystoreProvider
@@ -13,9 +16,17 @@ namespace FireflyCRM.Services.KeystoreProvider
 
     public KeystoreProvider()
     {
-      using (var file = new StreamReader(PATH))
+      var assembly = typeof(KeystoreProvider).GetTypeInfo().Assembly;
+
+      var resourcesFiles = assembly.GetManifestResourceNames().ToList();
+            
+      var keysPath = resourcesFiles.FirstOrDefault(path => path.EndsWith("keys.json", StringComparison.InvariantCulture));
+
+      
+      using (var file = assembly.GetManifestResourceStream(keysPath))
+      using (var reader = new StreamReader(file))
       {
-        var text = file.ReadToEnd();
+        var text = reader.ReadToEnd();
         var keys = JsonConvert.DeserializeObject<Keys>(text);
 
         MerchantId = keys.MerchantId;
